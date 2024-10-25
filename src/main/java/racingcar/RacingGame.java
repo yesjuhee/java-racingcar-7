@@ -1,11 +1,11 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingGame {
-    private List<Car> cars = new ArrayList<>();
-    private int totalRaceRound;
+    private List<Car> cars;
+    private final int totalRaceRound;
 
     RacingGame(List<String> carNames, int totalRaceRound) {
         registerCars(carNames);
@@ -13,9 +13,9 @@ public class RacingGame {
     }
 
     private void registerCars(List<String> carNames) {
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
+        cars = carNames.stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
     }
 
     public void start() {

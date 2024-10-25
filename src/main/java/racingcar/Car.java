@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
+    private final String name;
     private int step = 0;
 
     public Car(String name) {
@@ -17,10 +17,6 @@ public class Car {
     }
 
     public void printStatus() {
-        System.out.print(name + " : ");
-        for (int i = 0; i < step; i++) {
-            System.out.print('-');
-        }
-        System.out.println();
+        System.out.println(name + " : " + "-".repeat(step));
     }
 }
