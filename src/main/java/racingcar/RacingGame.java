@@ -19,10 +19,13 @@ public class RacingGame {
     }
 
     public void start() {
+        System.out.println("\n실행 결과");
         for (int round = 0; round < totalRaceRound; round++) {
             for (Car car : cars) {
                 car.move();
+                car.printStatus();
             }
+            System.out.println();
         }
     }
 }

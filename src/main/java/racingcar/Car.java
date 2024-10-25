@@ -15,4 +15,12 @@ public class Car {
             step++;
         }
     }
+
+    public void printStatus() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < step; i++) {
+            System.out.print('-');
+        }
+        System.out.println();
+    }
 }
