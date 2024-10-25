@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,5 +28,24 @@ public class RacingGame {
             }
             System.out.println();
         }
+        printWinner();
+    }
+
+    private void printWinner() {
+        int maximumStep = 0;
+        for (Car car : cars) {
+            if (car.getStep() > maximumStep) {
+                maximumStep = car.getStep();
+            }
+        }
+
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : cars) {
+            if (maximumStep == car.getStep()) {
+                winnerNames.add(car.getName());
+            }
+        }
+
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 }

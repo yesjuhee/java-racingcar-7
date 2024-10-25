@@ -4,6 +4,15 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getStep() {
+        return step;
+    }
+
     private int step = 0;
 
     public Car(String name) {
