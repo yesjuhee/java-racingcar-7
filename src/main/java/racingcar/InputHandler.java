@@ -17,7 +17,7 @@ public class InputHandler {
         return carNames;
     }
 
-    public static int getMoveCount() {
+    public static int getTotalRaceCount() {
         // TODO: Input 형식 검증
         System.out.println("시도할 횟수는 몇 회인가요?");
         String input = Console.readLine();
