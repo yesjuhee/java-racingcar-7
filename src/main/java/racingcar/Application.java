@@ -6,8 +6,8 @@ public class Application {
     public static void main(String[] args) {
 
         List<String> carNames = InputHandler.getCarNames();
-        Integer moveCount = InputHandler.getMoveCount();
-        
+        int moveCount = InputHandler.getMoveCount();
+
         RacingGame racingGame = new RacingGame(carNames, moveCount);
     }
 }

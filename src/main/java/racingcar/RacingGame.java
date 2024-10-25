@@ -5,9 +5,9 @@ import java.util.List;
 
 public class RacingGame {
     private List<Car> cars = new ArrayList<>();
-    private Integer moveCount;
+    private int moveCount;
 
-    RacingGame(List<String> carNames, Integer moveCount) {
+    RacingGame(List<String> carNames, int moveCount) {
         registerCars(carNames);
         this.moveCount = moveCount;
     }
