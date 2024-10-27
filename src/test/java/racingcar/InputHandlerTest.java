@@ -92,4 +92,29 @@ class InputHandlerTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름에 공백이 포함될 수 없습니다.");
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "5", "100"})
+    void 자동차이동횟수입력_테스트(String input) {
+        // given
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // when
+        int totalRaceCount = InputHandler.getTotalRaceCount();
+
+        // then
+        assertThat(totalRaceCount).isEqualTo(Integer.parseInt(input));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "-10", "1회", "1.5"})
+    void 자동차이동횟수입력_예외테스트(String input) {
+        // given
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // when & then
+        assertThatThrownBy(InputHandler::getTotalRaceCount)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도할 횟수는 자연수로 입력해주세요.");
+    }
 }
