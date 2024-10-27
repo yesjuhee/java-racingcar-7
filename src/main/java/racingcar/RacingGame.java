@@ -34,14 +34,14 @@ public class RacingGame {
     private void printWinner() {
         int maximumStep = 0;
         for (Car car : cars) {
-            if (car.getStep() > maximumStep) {
-                maximumStep = car.getStep();
+            if (car.getMoveDistance() > maximumStep) {
+                maximumStep = car.getMoveDistance();
             }
         }
 
         List<String> winnerNames = new ArrayList<>();
         for (Car car : cars) {
-            if (maximumStep == car.getStep()) {
+            if (maximumStep == car.getMoveDistance()) {
                 winnerNames.add(car.getName());
             }
         }
