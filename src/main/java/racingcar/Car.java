@@ -16,10 +16,6 @@ public class Car {
         }
     }
 
-    public void printStatus() {
-        System.out.println(name + " : " + "-".repeat(moveDistance));
-    }
-
     public String getName() {
         return name;
     }
