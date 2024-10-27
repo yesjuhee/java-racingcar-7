@@ -6,25 +6,33 @@ import java.util.List;
 
 public class InputHandler {
     public static List<String> getCarNames() {
+
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
-
-        if (input == null || input.isBlank()) {
-            throw new IllegalArgumentException("경주할 자동차 이름을 입력하세요.");
-        }
+        validateInput(input);
 
         List<String> carNames = new ArrayList<>();
         for (String carName : input.split(",")) {
             carName = carName.strip();
-            validateCarNameLength(carName);
+            validateCarName(carName);
             carNames.add(carName);
         }
+
         return carNames;
     }
 
-    private static void validateCarNameLength(String carName) {
+    private static void validateInput(String input) {
+        if (input == null || input.isBlank()) {
+            throw new IllegalArgumentException("경주할 자동차 이름을 입력하세요.");
+        }
+        if (input.split(",").length == 0) {
+            throw new IllegalArgumentException("쉼표 사이에 이름이 작성되어야 합니다.");
+        }
+    }
+
+    private static void validateCarName(String carName) {
         if (carName.isBlank()) {
-            throw new IllegalArgumentException("이름은 한 글자 이상 작성 가능합니다.");
+            throw new IllegalArgumentException("쉼표 사이에 이름이 작성되어야 합니다.");
         }
         if (carName.length() > 5) {
             throw new IllegalArgumentException("이름은 5글자 이하로 작성 가능합니다.");
