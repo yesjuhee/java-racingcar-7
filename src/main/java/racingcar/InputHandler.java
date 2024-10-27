@@ -21,7 +21,7 @@ public class InputHandler {
         return carNames;
     }
 
-    private static void validateInput(String input) {
+    private static void validateInput(final String input) {
         if (input == null || input.isBlank()) {
             throw new IllegalArgumentException("경주할 자동차 이름을 입력하세요.");
         }
@@ -30,9 +30,12 @@ public class InputHandler {
         }
     }
 
-    private static void validateCarName(String carName) {
+    private static void validateCarName(final String carName) {
         if (carName.isBlank()) {
             throw new IllegalArgumentException("쉼표 사이에 이름이 작성되어야 합니다.");
+        }
+        if (carName.contains(" ")) {
+            throw new IllegalArgumentException("이름에 공백이 포함될 수 없습니다.");
         }
         if (carName.length() > 5) {
             throw new IllegalArgumentException("이름은 5글자 이하로 작성 가능합니다.");
