@@ -10,7 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class CarTest {
-    private Car car;
+    private static Car car;
 
     @BeforeEach
     void setUp() {
