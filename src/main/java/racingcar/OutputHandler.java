@@ -9,17 +9,8 @@ public class OutputHandler {
         }
         System.out.println();
     }
-
-    public static void printFinalResult(final List<Car> cars) {
-        int maximumMoveDistance = cars.stream()
-                .mapToInt(Car::getMoveDistance)
-                .max().orElse(0);
-
-        List<String> winnerNames = cars.stream()
-                .filter(car -> car.getMoveDistance() == maximumMoveDistance)
-                .map(Car::getName)
-                .toList();
-        
+    
+    public static void printFinalResult(final List<String> winnerNames) {
         System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 }

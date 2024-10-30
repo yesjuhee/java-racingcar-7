@@ -63,18 +63,15 @@ class OutputHandlerTest {
     }
 
     @Test
-    void 최종우승자출력_테스트_1명() {
+    void 최종우승자출력_테스트_3명() {
         // given
-        Car winnerCar = cars.get(0);
-        for (int round = 0; round < TOTAL_RACE_ROUND; round++) {
-            winnerCar.move();
-        }
+        List<String> winnerCarNames = List.of("car1", "car2", "pobi");
 
         // when
-        OutputHandler.printFinalResult(cars);
+        OutputHandler.printFinalResult(winnerCarNames);
         String output = captor.toString();
 
         // then
-        assertThat(output).isEqualTo("최종 우승자 : car1\n");
+        assertThat(output).isEqualTo("최종 우승자 : car1, car2, pobi\n");
     }
 }

@@ -19,6 +19,21 @@ public class RacingGame {
             cars.forEach(Car::move);
             OutputHandler.printRoundResult(cars);
         }
-        OutputHandler.printFinalResult(cars);
+        int maximumMoveDistance = findMaximumMoveDistance(cars);
+        List<String> winnerNames = getWinnerNames(cars, maximumMoveDistance);
+        OutputHandler.printFinalResult(winnerNames);
+    }
+
+    private int findMaximumMoveDistance(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getMoveDistance)
+                .max().orElse(0);
+    }
+
+    private List<String> getWinnerNames(List<Car> cars, int maximumMoveDistance) {
+        return cars.stream()
+                .filter(car -> car.getMoveDistance() == maximumMoveDistance)
+                .map(Car::getName)
+                .toList();
     }
 }
