@@ -23,7 +23,8 @@ public class InputHandler {
     public static int getTotalRaceCount() {
         System.out.println("시도할 횟수는 몇 회인가요?");
         String input = Console.readLine();
-        return parseAndValidatePositiveInteger(input);
+        validatePositiveInteger(input);
+        return Integer.parseInt(input);
     }
 
     private static void validateCarNamesInput(final String input) {
@@ -47,15 +48,12 @@ public class InputHandler {
         }
     }
 
-    private static int parseAndValidatePositiveInteger(String input) {
-        try {
-            int num = Integer.parseInt(input);
-            if (num <= 0) {
-                throw new IllegalArgumentException("시도할 횟수는 자연수로 입력해주세요.");
-            }
-            return num;
-        } catch (NumberFormatException e) {
+    private static void validatePositiveInteger(final String input) {
+        if (!input.matches("\\d+")) {
             throw new IllegalArgumentException("시도할 횟수는 자연수로 입력해주세요.");
+        }
+        if (input.matches("0")) {
+            throw new IllegalArgumentException("시도할 횟수는 0이 아닌 자연수로 입력해주세요.");
         }
     }
 }
