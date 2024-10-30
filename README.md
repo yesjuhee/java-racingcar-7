@@ -2,6 +2,12 @@
 
 ## 자동차 경주
 
+우아한테크코스 7기 프리코스 2주차 미션 저장소
+
+- [yesjuhee 브랜치](https://github.com/yesjuhee/java-racingcar-7/tree/yesjuhee): 미션 수행 코드
+- [main 브랜치](https://github.com/yesjuhee/java-racingcar-7/tree/main): 미션 종료 후 리팩토링을 진행한 코드
+- [PR 제출 주소](https://github.com/woowacourse-precourse/java-racingcar-7/pull/240)
+
 ### 기능 목록
 
 1. 경주 게임에 참가할 자동차의 이름을 입력할 수 있다.
