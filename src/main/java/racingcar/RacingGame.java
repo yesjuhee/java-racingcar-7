@@ -14,14 +14,14 @@ public class RacingGame {
     }
 
     public void start() {
-        System.out.println("\n실행 결과");
+        OutputHandler.displayGameResultHeader();
         for (int round = 0; round < totalRaceRound; round++) {
             cars.forEach(Car::move);
-            OutputHandler.printRoundResult(cars);
+            OutputHandler.displayRoundResult(cars);
         }
         int maximumMoveDistance = findMaximumMoveDistance(cars);
         List<String> winnerNames = getWinnerNames(cars, maximumMoveDistance);
-        OutputHandler.printFinalResult(winnerNames);
+        OutputHandler.displayFinalResult(winnerNames);
     }
 
     private int findMaximumMoveDistance(List<Car> cars) {

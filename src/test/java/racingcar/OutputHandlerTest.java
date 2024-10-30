@@ -51,7 +51,7 @@ class OutputHandlerTest {
         }
 
         // when
-        OutputHandler.printRoundResult(cars);
+        OutputHandler.displayRoundResult(cars);
         String output = captor.toString();
 
         // then
@@ -68,7 +68,7 @@ class OutputHandlerTest {
         List<String> winnerCarNames = List.of("car1", "car2", "pobi");
 
         // when
-        OutputHandler.printFinalResult(winnerCarNames);
+        OutputHandler.displayFinalResult(winnerCarNames);
         String output = captor.toString();
 
         // then
